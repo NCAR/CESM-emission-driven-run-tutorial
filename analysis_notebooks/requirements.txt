@@ -1,3 +1,6 @@
 xarray
 cartopy
 pandas
+h5netcdf
+netcdf4
+nc-time-axis
