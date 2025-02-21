@@ -1,5 +1,10 @@
 #!/bin/sh
 
+######## Assign Project Number
+# Project number to charge for the simulation
+export PROJECT_NUM=USIO0040 # this is the account for the emissions-driven tutorial
+export CHARGE_ACCOUNT=USIO0040 # this is the account for the emissions-driven tutorial
+
 ######## this case will branch off the PI control'
 
 cd '/glade/work/'$USER
@@ -32,7 +37,7 @@ cd $SRCROOT'/cime/scripts'
 
 rm -Rf $CASEROOT '/glade/derecho/scratch/'$USER'/'$CASE '/glade/derecho/scratch/'$USER'/archive/'$CASE
 
-./create_newcase --machine derecho --compset BHIST_BPRPcmip6  --res f09_g17 --case $CASEROOT --pecount L
+./create_newcase --machine derecho --compset BHIST_BPRPcmip6  --res f09_g17 --case $CASEROOT --pecount L --project $PROJECT_NUM
 
 echo 'Just created the case, now document the code base'
 
@@ -61,7 +66,7 @@ REFCASE='b.e21.B1850.f09_g17.ccisens-reference.esmfirebvoc.001'
 ########  xmlchange commands to get the run set up
 
 ./xmlchange RUN_TYPE=hybrid
-./xmlchange PROJECT=USIO0040,CHARGE_ACCOUNT=USIO0040 ### this is the project allocation for the tutorial
+./xmlchange PROJECT=$PROJECT_NUM,CHARGE_ACCOUNT=$CHARGE_ACCOUNT 
 ./xmlchange RUN_REFCASE=$REFCASE
 ./xmlchange GET_REFCASE=FALSE
 ./xmlchange RUN_REFDATE=0051-01-01
