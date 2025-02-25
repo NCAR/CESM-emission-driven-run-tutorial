@@ -1,3 +1,6 @@
+# 
+analysis_notebooks/atmosphericCO2_gka
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
