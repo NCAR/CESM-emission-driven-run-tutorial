@@ -2,8 +2,8 @@
 
 ######## Assign Project Number
 # Project number to charge for the simulation
-export PROJECT_NUM=USIO0040 # this is the account for the emissions-driven tutorial
-export CHARGE_ACCOUNT=USIO0040 # this is the account for the emissions-driven tutorial
+export PROJECT_NUM=USIO0040 # this is the account for the emissions-driven tutorial, will need to be changed after expiration on Feb 28, 2025
+export CHARGE_ACCOUNT=USIO0040 # this is the account for the emissions-driven tutorial, will need to be changed after expiration on Feb 28, 2025
 
 ######## this case will branch off the PI control'
 
@@ -106,6 +106,6 @@ cp ${USER_NL_DIR}'/user_nl_'* ${CASEROOT}
 
 ############## now just build the model and submit:
 
-qcmd -A USIO0040 -- ./case.build
+qcmd -A $PROJECT_NUM -- ./case.build
 
 ./case.submit
